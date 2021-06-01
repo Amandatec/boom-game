@@ -1,29 +1,34 @@
 // [FEITO] capturar o elemento html em que vamos inserir os baloes
 // [FEITO] adicionar o balão no container
 // [FEITO] determinar um intervalo de tempo para adicionar os baloes sequencialmente
+//FEITO inserido a função para estourar baloes
+const containerBaloes = document.querySelector(".containerBaloes");
 
-const containerBaloes = document.querySelector(".container-baloes");
+console.log("container =>,containerBaloes" );
 
-function adicionarBalao() {
-  const elementoImg = document.createElement("img");
+function adicionarBalao (){
+    const elementoImg = document.createElement("img");
 
-  elementoImg.setAttribute("src", "./assets/baloon.png");
-  elementoImg.setAttribute("class", "balao");
+    elementoImg.setAttribute("src", "./assets/img/baloon.png");
+    elementoImg.setAttribute("class", "balao")//coloquei uma class no IMG dentro do js
 
-  const valorLeft = Math.round(Math.random() * 90);
-  const valorTop = Math.round(Math.random() * 90);
+    const valorLeft = Math.round(Math.random () *90);
+    const valorTop = Math.round(Math.random () *90);
 
-  elementoImg.style.left = valorLeft + "vw";
-  elementoImg.style.top = valorTop + "vh";
+    elementoImg.style.left = valorLeft + "vw";
+    elementoImg.style.top = valorTop + "vh";
 
-  console.log("left=>", valorLeft);
-  console.log("Top=>", valorTop);
+    console.log("left=>", valorLeft);
+    console.log("Top=>", valorTop);
 
-  containerBaloes.appendChild(elementoImg);
+    containerBaloes.appendChild(elementoImg);
 
-  console.log("Elemento Img =>", elementoImg);
+    //console.log("Elemento Img =>", elementoImg);
+    elementoImg.addEventListener ("click", function() {
+        elementoImg.remove();
+     
+    })
 }
 
-setInterval(adicionarBalao, 3000); //3000 milesegundos = 3 segundos
 
-// adicionarBalao();
+setInterval(adicionarBalao, 1000);
